@@ -23,9 +23,13 @@ for filename in filepaths:
 	print (siteurl + (filename.replace(sys.argv[1], "")))
 
 yesorno = input('Send to proxy? y/n')
+#filepath above becomes empty for some reason
+filepaths2 = glob.iglob((wwwrootpath +"/**/"+ filetype), recursive=True)
 
+print(yesorno)
 if yesorno == 'y':
-	for filename in filepaths:
+	for filename in filepaths2:
+		print(filename)
 		proxies = {
 			  "http": "http://127.0.0.1:8080",
 			  "https": "http://127.0.0.1:8080",
